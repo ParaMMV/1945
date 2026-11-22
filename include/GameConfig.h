@@ -1,0 +1,8 @@
+#ifndef GAMECONFIG_H
+#define GAMECONFIG_H
+
+#define SCREEN_WIDTH  1920
+#define SCREEN_HEIGHT 1080
+#define MAX_BULLETS   20
+
+#endif
