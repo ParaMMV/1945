@@ -7,9 +7,9 @@ void initPlayer(Player *player)
     player->speed = 300.f;
     player->velocity = 0;
     player->canShoot = true;
-
+    player->shootingOffset =(Vector2){Vector2Scale(player->size, 0.3f).x,0};
     for (int i = 0; i < MAX_BULLETS; i++)
-        player->bullets[i] = createBullet(player->position);
+        player->bullets[i] = createBullet(Vector2Add(player->position, player->shootingOffset));
 }
 
 void shootBullet(Player *player)
@@ -18,7 +18,7 @@ void shootBullet(Player *player)
     {
         if (!player->bullets[i].isActive)
         {
-            player->bullets[i].position = player->position;
+            player->bullets[i].position = Vector2Add(player->position, player->shootingOffset);
             player->bullets[i].isActive = true;
             return;
         }
