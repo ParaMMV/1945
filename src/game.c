@@ -7,7 +7,7 @@
 #include "player.h"
 #include "GameConfig.h"
 #include "enemy.h"
-
+#include "collision.h"
 int main(void)
 {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Shooter");
@@ -19,6 +19,17 @@ int main(void)
 
     Enemy enemy = {0};
     initEnemy(&enemy);
+
+    Enemy enemies[10] = {0};
+    enemies[0]=enemy;
+
+    Upgrade upgrades[10]= {0};
+    Upgrade upgrade = {0};
+    upgrades[0]=upgrade;
+
+    Bullet enemyBullet= {0};
+    Bullet enemyBullets[10]={0};
+    enemyBullets[0]= enemyBullet;
 
     while (!WindowShouldClose())
     {
@@ -33,7 +44,10 @@ int main(void)
 
         }
 
-        UpdateEnemy(&enemy, delta);
+        if(enemies[0].isActive)
+        UpdateEnemy(&enemies[0], delta);
+
+        HandleCollisions(&player, enemies,1,upgrades, 1, enemyBullets,1);
 
         //Drawing
         BeginDrawing();
@@ -44,7 +58,9 @@ int main(void)
                 if (player.bullets[i].isActive)
                     DrawBullet(&player.bullets[i]);
             }
-            DrawEnemy(&enemy);
+
+            if(enemies[0].isActive)
+            DrawEnemy(&enemies[0]);
         EndDrawing();
     }
 

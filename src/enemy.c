@@ -8,6 +8,7 @@ void initEnemy(Enemy *enemy)
     enemy->shootingOffset =(Vector2){Vector2Scale(enemy->size, 0.3f).x,0};
     // for (int i = 0; i < MAX_BULLETS; i++)
     //     enemy->bullets[i] = createBullet(Vector2Add(enemy->position, enemy->shootingOffset));
+    enemy->isActive=true;
 }
 
 // void shootBullet(Enemy *enemy)

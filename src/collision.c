@@ -14,7 +14,7 @@ static void DamagePlayer(Player *player, int amount)
 
 // 
 
-void HandleCollisions(Player *player,Enemy enemies[], int enemyCount, Upgrade upgrades[], int upgradeCount, Bullet enemyBullets[], int enemyBulletCount)
+ void HandleCollisions(Player *player,Enemy *enemies, int enemyCount, Upgrade *upgrades, int upgradeCount, Bullet *enemyBullets, int enemyBulletCount)
 {
     Rectangle playerRect = PlayerRect(player);
 

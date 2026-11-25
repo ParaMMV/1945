@@ -6,7 +6,6 @@
 #include "upgrade.h"
 
 // Enemy enemies[], int enemyCount
-
-void HandleCollisions(Player *player,Enemy enemies[], int enemyCount, Upgrade upgrades[], int upgradeCount, Bullet enemyBullets[], int enemyBulletCount);
+void HandleCollisions(Player *player,Enemy *enemies, int enemyCount, Upgrade *upgrades, int upgradeCount, Bullet *enemyBullets, int enemyBulletCount);
 
 #endif
